@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*basic css reset*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font: 1.5rem "Roboto", sans-serif;
+    min-height: 100vh;
+    background-color: #475569; /*setting the background color*/
+    /*radial gradient starts from the centre and wokrs it way out*/
+    background-image: radial-gradient(whitesmoke,#475569);
+
+    display: flex;
+    flex-direction: column;
+}
+
+header,nav,main,footer{
+    display: grid;
+    place-content: center;
+    grid-template-columns: 100%; /*enable 100% width for each element in the grid*/
+    text-align: center; /*center the text */
+}
+
+header, footer{
+    position: sticky;
+    background-color: #1E293B; /*set background color of the header and footer*/ 
+    color: whitesmoke;
+}
+
+header{
+    top: 0; /*Place the header at the top*/
+}
+
+nav{
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+}
+
+main{
+    flex-grow: 1; /*increase the size of the main elements flex box*/
+}
+
+footer{
+    bottom: 0;/*Place the footer at the bottom*/
+}
+
+/* Small */
+/* this applies the specified styles after the width reaches 576px until it is overwritten */
+@media screen and (min-width: 576px) {
+    body {
+        background-color: green;
+        background-image: radial-gradient(whitesmoke, green); 
+    }
+    nav {
+        display: none; /*remove the nav from the page*/
+    }
+}
+
+/* Medium */
+/* this applies the specified styles after the width reaches 768px until it is overwritten */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: blue;
+        background-image: radial-gradient(whitesmoke, blue); 
+    }
+}
+
+/* Large */
+/* this applies the specified styles after the width reaches 992px until it is overwritten */
+@media screen and (min-width: 992px) {
+    body {
+        background-color: firebrick;
+        background-image: radial-gradient(whitesmoke, firebrick); 
+    }
+}
+
+/* XL */
+/* this applies the specified styles after the width reaches 1200px until it is overwritten */
+@media screen and (min-width: 1200px) {
+    body {
+        background-color: rebeccapurple;
+        background-image: radial-gradient(whitesmoke, rebeccapurple); 
+    }
+}
+
+/* MOBILE DEVICE LANDSCAPE */
+/* this applies the specified styles after the aspect ratio until it is overwritten */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    body {
+        background-color: dodgerblue;
+        background-image: radial-gradient(whitesmoke, dodgerblue); 
+    }
+
+    h1,h2{
+        font-size: 1.5rem;
+    }
+
+    nav{
+        display: none;
+    }
+}

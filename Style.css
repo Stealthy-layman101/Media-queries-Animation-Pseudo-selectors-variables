@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+div{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: grid;
+    place-content: center;
+}
+
+div:first-child{
+    background-color: aquamarine;
+    /* transform: translateX(50%) */  /*moves the selected element left or right*/
+  /*  transform: rotateX(180deg); */ /*rotate the selected element on the x axis basically top to bottom*/
+  /* transform: scalex(120%); */  /*increase the size on the left and right*/ 
+/*   transform: skewX(-10deg);  */
+  /* transform: skewY(10deg); */
+} 
+
+div:nth-child(2){
+    background-color: yellow;
+    /* transform: rotateZ(150deg); */
+    /* transform: translate(100%, -2rem); */ 
+   /*  transform: scaleY(120%); */ /*increases the element on the top and bottom*/
+   /*  transform: translateY(-2rem); */
+     /*transform: rotateY(180deg);*/    /*rotate the selected element on the y axis basically left to right*/
+   /* transform: skew(-10deg, -10deg); */ /*shorthand for skew*/
+}
+
+div:last-child{
+    background-color: limegreen;
+    /* transform: translate(100%, -2rem);  */ /*moves element to the right by 100% and up by -2rem*/
+   /*  transform: rotateZ(135deg); */  /*rotating clockwise and counterclockwise*/
+   /* transform: scale(50%, 50%); */ /*shorthand for scale-x and scale-y*/
+}
+
+
+div:hover{
+    background-color: midnightblue;
+     /* transition-property: background-color, transform; */  /*changes the property specified*/
+    /* transition-duration: 2s, 3s; */ /*specifies the duration of the transition*/
+    /* transition-delay: 0.5s; */ /*delays a transition*/
+    /* transition-timing-function: linear; */ /*linear makes the transition a tad bit slower*/
+     transition: all 1s ease-in-out 0.5s;  /*transition shorthand consists of transition property, duration, timing and delay respectively*/
+}
+
+div:last-child:hover{
+    transform: rotate(180deg);
+}
+
+.animate{
+/*     animation-name: slide;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-iteration-count: 2; */
+   /*   animation-direction:alternate; */  /*alternates the specified direction*/
+     /* animation-fill-mode: forwards; */  /*keeps the ending state of animation*/
+    /* animation-fill-mode: backwards; */ /*keeps the beginning state of animation*/
+    animation: 5s ease-in-out 1s 2 normal backwards slide; /*shorthand*/ /*duration, delay, iteration-count, direction, fill-mode, animation name respectively*/
+}
+
+@keyframes slide {
+    /*beginning of animation*/
+    0%{
+        transform: translateX(0); /*no movement at the beginning*/
+    }
+
+    /*Almost halfway into the animation*/
+    33%{
+        transform: translateX(300px) rotate(180deg); /*moves 300px to the right and rotates 180deg at 33% of the animation*/
+    }
+
+    /*Past halfway into the animation*/
+    66%{
+        transform: translateX(-300px) rotate(-180deg); /*moves -300px to the left and rotates -180deg at 66%* of the animation*/
+    }
+
+    /*end of animation*/
+    100%{
+        transform: translateX(0); /*goes back to original position at 100% of the animation*/
+        background-color: rebeccapurple; /*changes background color*/
+    }
+}
